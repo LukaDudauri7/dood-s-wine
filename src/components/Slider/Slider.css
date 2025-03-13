@@ -1,0 +1,39 @@
+.swiper-container {
+  width: 100%;
+  height: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.swiper-slide img {
+  max-width: 600px;
+  max-height: 600px;
+  object-fit: contain; /* უზრუნველყოფს რომ სურათი არ დაიწიოს და დარჩეს ხელმისაწვდომი */
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgba(0, 0, 0, 0.8);
+}

@@ -46,3 +46,7 @@
 .swiper-button-prev {
   left: 10px;
 }
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #ffffff;
+}

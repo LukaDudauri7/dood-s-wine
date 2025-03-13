@@ -23,6 +23,12 @@ const Slider = () => {
         <SwiperSlide>
           <img src="/images/wine2.png" alt="Wine 2" />
         </SwiperSlide>
+        <SwiperSlide>
+          <img src="/images/wine3.png" alt="Wine 3" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="/images/wine4.png" alt="Wine 4" />
+        </SwiperSlide>
       </Swiper>
     </div>
   );

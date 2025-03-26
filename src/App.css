@@ -63,6 +63,7 @@ h2 {
 
   .menu.open {
     display: flex;
+    z-index: 2;
   }
 
   .hamburger {
@@ -71,5 +72,8 @@ h2 {
 
   .App-nav a {
     margin: 10px 0;
+  }
+  .App-nav {
+    justify-content: left;
   }
 }

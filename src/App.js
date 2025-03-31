@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Wine from "./components/Wine/Wine";
 import About from "./components/About/About";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,6 +33,7 @@ function App() {
           <Route path="/wine" element={<Wine />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

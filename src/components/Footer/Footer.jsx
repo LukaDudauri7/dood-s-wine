@@ -1,8 +1,14 @@
+import './Footer.css';
+
 const Footer = () => {
     return(
-        <divv>
-            Footer
-        </divv>
+        <div className="footer">
+            <div>Copyright@2025 Dood's Wine. All Rights Reserved.</div>
+            <div className='footer-links'>
+                <div>Privacy Policy</div>
+                <div>Terms and Condition</div>
+            </div>
+        </div>
     )
 }
 

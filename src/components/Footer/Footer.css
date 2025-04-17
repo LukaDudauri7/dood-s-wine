@@ -3,6 +3,7 @@
     justify-content: space-around;
     position: relative;
     bottom: 40px;
+    color: white;
 }
 .copyright{
     cursor: pointer;

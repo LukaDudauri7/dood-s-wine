@@ -28,11 +28,13 @@ function App() {
             <Link to="/about" onClick={toggleMenu}>About</Link>
           </div>
         </nav>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/wine" element={<Wine />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/wine" element={<Wine />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </Router>

@@ -8,7 +8,7 @@ const Home = () => {
             <div className="hero-content">
                 <h1 className="hero-title">ღვინო - საუკეთესო საჩუქარი</h1>
                 <p className="hero-subtitle">
-                აღმოაჩინე ჩვენს მიერ შერჩეული საუკეთესო ღვინოები — ტრადიცია, ხარისხი და სითბო ერთ ბოთლში.
+                აღმოაჩინე ჩვენს მიერ დამზადებული საუკეთესო ღვინოები.
                 </p>
                 <button className="hero-button">სრულად ნახე</button>
             </div>

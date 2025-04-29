@@ -13,3 +13,9 @@
     display: flex;
     gap: 30px;
 }
+.footer-links div:nth-child(1):hover,
+.footer-links div:nth-child(2):hover,
+.copyright:hover {
+    color: wheat;
+}
+  

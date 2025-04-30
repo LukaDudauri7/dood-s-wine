@@ -4,14 +4,7 @@ const Home = () => {
     return (
         <div>
             <h1>DOOD'S WINE</h1>
-            <section className="hero-section">
-            <div className="hero-content">
-                <h1 className="hero-title">ღვინო - საუკეთესო საჩუქარი</h1>
-                <p className="hero-subtitle">
-                აღმოაჩინე ჩვენს მიერ დამზადებული საუკეთესო ღვინოები.
-                </p>
-            </div>
-            </section>
+            <h2>WHERE WINE MEETS ART</h2>
             <Slider />
         </div>
     );

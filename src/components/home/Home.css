@@ -1,32 +1,12 @@
-.hero-section {
-    background-color: #8d0449;
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-}
-
-.hero-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.hero-title {
-  font-size: 48px;
-  font-family: 'Georgia', serif;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-}
-
-.hero-subtitle {
-  font-size: 18px;
-  color: #f8f1e1;
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin-right: auto;
-}
-
 h1{
   font-family: 'Hangyaboly';
   text-align: center;
   font-size: 80px;
+  color: #f8f1e1;
+}
+
+h2{
+  font-family: 'Hangyaboly';
+  text-align: center;
+  font-size: 60px;
 }

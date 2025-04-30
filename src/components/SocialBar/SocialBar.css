@@ -1,0 +1,55 @@
+.social-bar {
+  position: fixed;
+  top: 30%;
+  right: 0; /* მარცხნიდან -> მარჯვნივ გადავიტანეთ */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 999;
+}
+
+.social-link {
+  display: flex;
+  justify-content: flex-end; /* label გადავიტანოთ მარცხნივ */
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  width: 45px;
+  overflow: hidden;
+  border-radius: 5px 0 0 5px; /* მარჯვნიდან მარცხნივ იშლება */
+  transition: width 0.3s ease;
+}
+
+.social-link .label {
+  margin-right: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  order: -1;
+}
+
+.social-link:hover {
+  width: 140px;
+}
+.social-link:hover .label {
+  opacity: 1;
+}
+.facebook {
+  background-color: #3b5998;
+}
+.instagram {
+  background-color: #8a3ab9;
+}
+.linkedin {
+  background-color: #0077b5;
+}
+.whatsapp {
+  background-color: #25d366;
+}
+.tiktok {
+  background-color: #000000;
+}
+.social-link i {
+  font-size: 18px;
+}

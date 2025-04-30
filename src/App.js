@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Wine from "./components/Wine/Wine";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
+import './fonts.css';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

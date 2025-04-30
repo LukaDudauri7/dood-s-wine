@@ -10,7 +10,6 @@ const Home = () => {
                 <p className="hero-subtitle">
                 აღმოაჩინე ჩვენს მიერ დამზადებული საუკეთესო ღვინოები.
                 </p>
-                <button className="hero-button">სრულად ნახე</button>
             </div>
             </section>
             <Slider />

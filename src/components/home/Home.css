@@ -19,24 +19,8 @@
   
   .hero-subtitle {
     font-size: 18px;
-    color: #e6d5c3;
+    color: #f8f1e1;
     margin-bottom: 30px;
     max-width: 600px;
     margin-right: auto;
   }
-  
-  .hero-button {
-    background-color: #f8f1e1;
-    color: #3a0f0f;
-    padding: 12px 24px;
-    font-weight: bold;
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .hero-button:hover {
-    background-color: #c5905e;
-  }
-  

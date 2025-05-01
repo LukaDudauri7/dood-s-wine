@@ -1,24 +1,24 @@
 .social-bar {
   position: fixed;
-  top: 30%;
-  right: 0; /* მარცხნიდან -> მარჯვნივ გადავიტანეთ */
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  right: 0;
+  width: 140px; /* მაქსიმალური სიგანე ჰოვერზე */
+  height: auto;
   z-index: 999;
 }
 
 .social-link {
+  position: absolute;
+  right: 0;
   display: flex;
-  justify-content: flex-end; /* label გადავიტანოთ მარცხნივ */
+  justify-content: flex-end;
   align-items: center;
   color: white;
   text-decoration: none;
   padding: 10px;
-  width: 45px;
+  width: 38px;
   overflow: hidden;
-  border-radius: 5px 0 0 5px; /* მარჯვნიდან მარცხნივ იშლება */
-  transition: width 0.3s ease;
+  border-radius: 6px 0 0 6px;
+  transition: width 0.4s ease;
 }
 
 .social-link .label {
@@ -50,6 +50,19 @@
 .tiktok {
   background-color: #000000;
 }
-.social-link i {
-  font-size: 18px;
+/* კონკრეტული ღილაკების დაშორება ერთმანეთისგან */
+.social-bar .social-link:nth-child(1) {
+  top: 0;
+}
+.social-bar .social-link:nth-child(2) {
+  top: 50px;
+}
+.social-bar .social-link:nth-child(3) {
+  top: 100px;
+}
+.social-bar .social-link:nth-child(4) {
+  top: 150px;
+}
+.social-bar .social-link:nth-child(5) {
+  top: 200px;
 }

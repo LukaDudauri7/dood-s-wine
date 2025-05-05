@@ -1,7 +1,9 @@
 .social-bar {
   position: fixed;
   right: 0;
-  width: 140px; /* მაქსიმალური სიგანე ჰოვერზე */
+  width: 140px;
+  top: 50%;
+  transform: translateY(-50%);
   height: auto;
   z-index: 999;
 }
@@ -50,19 +52,19 @@
 .tiktok {
   background-color: #000000;
 }
-/* კონკრეტული ღილაკების დაშორება ერთმანეთისგან */
+
 .social-bar .social-link:nth-child(1) {
-  top: 0;
+  top: -100px;
 }
 .social-bar .social-link:nth-child(2) {
-  top: 50px;
+  top: -50px;
 }
 .social-bar .social-link:nth-child(3) {
-  top: 100px;
+  top: 0;
 }
 .social-bar .social-link:nth-child(4) {
-  top: 150px;
+  top: 50px;
 }
 .social-bar .social-link:nth-child(5) {
-  top: 200px;
+  top: 100px;
 }

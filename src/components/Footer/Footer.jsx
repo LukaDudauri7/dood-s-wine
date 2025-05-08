@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="footer">
             <div className='copyright'>Copyright@2025 Dood's Wine. All Rights Reserved.</div>
             <div className='footer-links'>
-                <div>Privacy Policy</div>
+                {/* <div>Privacy Policy</div> */}
                 <div>Terms and Condition</div>
             </div>
         </div>

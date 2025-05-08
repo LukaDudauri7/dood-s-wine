@@ -4,6 +4,8 @@
     position: relative;
     bottom: 40px;
     color: white;
+    z-index: 10;
+    text-align: center;
 }
 .copyright{
     cursor: pointer;
@@ -19,3 +21,10 @@
     color: wheat;
 }
   
+
+@media (max-width: 768px) {
+    .footer{
+        bottom: 10px;
+        margin-top: 20px;
+    }
+}

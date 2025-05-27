@@ -31,15 +31,6 @@ main {
   font-family: 'Poppins';
 }
 
-.hamburger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-}
-
 .bar {
   height: 4px;
   width: 100%;
@@ -75,10 +66,6 @@ h2 {
   .menu.open {
     display: flex;
     z-index: 2;
-  }
-
-  .hamburger {
-    display: flex;
   }
 
   .App-nav a {
@@ -119,4 +106,46 @@ h2 {
 }
 .signup-btn:hover {
   background-color: #a71a5f;
+}
+
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  background-color: #fdf1e7;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 10px 16px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  color: #4a2e1e;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.mobile-menu a:hover {
+  background-color: #f1d6c6;
+  transform: scale(1.03);
 }

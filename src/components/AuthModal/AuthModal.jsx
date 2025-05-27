@@ -22,27 +22,28 @@ function AuthModal({ type, onClose }) {
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
+    <div className="auth-modal-overlay">
+    <div className="auth-modal">
+        <button className="close-button" onClick={onClose}>×</button>
         <h2>{type === "login" ? "Log In" : "Sign Up"}</h2>
         <form onSubmit={handleSubmit}>
-          <input
+        <input
             type="email"
             placeholder="Email"
             value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-          <input
+            onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
             type="password"
             placeholder="Password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-          <button type="submit">{type === "login" ? "Log In" : "Sign Up"}</button>
+            onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">{type === "login" ? "Log In" : "Sign Up"}</button>
         </form>
-        <button className="close-btn" onClick={onClose}>X</button>
-      </div>
     </div>
+    </div>
+
   );
 }
 

@@ -68,3 +68,9 @@
 .social-bar .social-link:nth-child(5) {
   top: 100px;
 }
+
+@media (max-width: 768px) {
+  .social-link {
+    width: 25px;
+  }
+}

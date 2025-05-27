@@ -57,4 +57,10 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   .swiper-slide img {
     height: 400px;
   }
+  .swiper{
+    width: 80%;
+  }
+  .swiper-slide img{
+    width: 70%;
+  }
 }

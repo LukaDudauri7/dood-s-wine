@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import {BrowserView, MobileView} from 'react-device-detect';
+import {BrowserView, MobileView, isMobile} from 'react-device-detect';
 import Home from "./components/Home/Home";
 import Wine from "./components/Wine/Wine";
 import About from "./components/About/About";
@@ -42,29 +42,27 @@ function App() {
                 </div>
               </div>
             </BrowserView>
-            <MobileView>
-              <div className="mobile-nav">
-                <div>
-                  <div className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
-                  </div>
-
-                  {isMenuOpen && (
-                    <div className="mobile-menu">
-                      <Link to="/" onClick={toggleMenu}>Home</Link>
-                      <Link to="/wine" onClick={toggleMenu}>Wine</Link>
-                      <Link to="/about" onClick={toggleMenu}>About</Link>
-                    </div>
-                  )}
+            {isMobile && (
+              <>
+                <div className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
+                  <div className="bar"></div>
                 </div>
-              </div>
-              <div className="auth-buttons">
-                <button className="login-btn" onClick={() => { openModal('login'); toggleMenu(); }}> Log In </button>
-                <button className="signup-btn" onClick={() => { openModal('signup'); toggleMenu(); }}> Sign Up </button>
-              </div>
-            </MobileView>
+                {isMenuOpen && (
+                  <div className="mobile-menu">
+                    <Link to="/" onClick={toggleMenu}>Home</Link>
+                    <Link to="/wine" onClick={toggleMenu}>Wine</Link>
+                    <Link to="/about" onClick={toggleMenu}>About</Link>
+                  </div>
+                )}
+                <div className="auth-buttons">
+                  <button className="login-btn" onClick={() => { openModal('login'); toggleMenu(); }}> Log In </button>
+                  <button className="signup-btn" onClick={() => { openModal('signup'); toggleMenu(); }}> Sign Up </button>
+                </div>
+              </>
+            )}
+            
         </nav>
 
         {isModalOpen && (

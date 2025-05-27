@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-around;
     position: relative;
-    bottom: 40px;
     color: white;
     z-index: 10;
     text-align: center;
+    margin: 10px;
 }
 .copyright{
     cursor: pointer;

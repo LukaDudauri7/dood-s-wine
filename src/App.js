@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Wine from "./components/Wine/Wine";
-import About from "./components/About/About";
+import Home from "./components/home/Home";
+import Wine from "./components/wine/Wine";
+import About from "./components/about/About";
 import Footer from "./components/Footer/Footer";
 import './fonts.css';
 

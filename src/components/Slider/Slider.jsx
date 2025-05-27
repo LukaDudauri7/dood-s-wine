@@ -7,6 +7,8 @@ import 'swiper/css/pagination';
 import './Slider.css';
 
 const Slider = () => {
+  const imageCount = 5;
+  const images = Array.from({ length: imageCount }, (_, i) => `/images/wine${i + 1}.png`);
   return (
     <div className="slider-container">
       <Swiper
@@ -17,18 +19,11 @@ const Slider = () => {
         pagination={{ clickable: true }}
         loop={true}
       >
-        <SwiperSlide>
-          <img src="/images/wine1.png" alt="Wine 1" />
+      {images.map((src, index) => (
+        <SwiperSlide key={index}>
+          <img src={src} alt={`Wine ${index + 1}`} />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/wine2.png" alt="Wine 2" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/wine3.png" alt="Wine 3" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/images/wine4.png" alt="Wine 4" />
-        </SwiperSlide>
+      ))}
       </Swiper>
     </div>
   );

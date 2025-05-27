@@ -5,7 +5,7 @@
     color: white;
     z-index: 10;
     text-align: center;
-    margin: 10px;
+    margin: 25px;
 }
 .copyright{
     cursor: pointer;
@@ -19,12 +19,4 @@
 .footer-links div:nth-child(2):hover,
 .copyright:hover {
     color: wheat;
-}
-  
-
-@media (max-width: 768px) {
-    .footer{
-        bottom: 10px;
-        margin-top: 20px;
-    }
 }

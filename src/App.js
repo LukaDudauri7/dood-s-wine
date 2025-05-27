@@ -27,6 +27,10 @@ function App() {
             <Link to="/" onClick={toggleMenu}>Home</Link>
             <Link to="/wine" onClick={toggleMenu}>Wine</Link>
             <Link to="/about" onClick={toggleMenu}>About</Link>
+            <div className="auth-buttons">
+              <button className="login-btn">Log In</button>
+              <button className="signup-btn">Sign Up</button>
+            </div>
           </div>
         </nav>
         <main>

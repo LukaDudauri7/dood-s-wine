@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import {BrowserView, MobileView, isMobile} from 'react-device-detect';
@@ -7,12 +7,19 @@ import Wine from "./components/Wine/Wine";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 import AuthModal from "./components/AuthModal/AuthModal";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
+import { signOut } from "firebase/auth";
 import './fonts.css';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("login");
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -27,6 +34,26 @@ function App() {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        setUsername(user.displayName || user.email);
+      } else {
+        setIsLoggedIn(false);
+        setUsername("");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const logout = () => {
+    signOut(auth);
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
+  };
+
   return (
     <Router>
       <div className="App">
@@ -37,8 +64,17 @@ function App() {
                 <Link to="/wine" onClick={toggleMenu}>Wine</Link>
                 <Link to="/about" onClick={toggleMenu}>About</Link>
                 <div className="auth-buttons">
-                  <button className="login-btn" onClick={() => openModal('login')}>Log In</button>
-                  <button className="signup-btn" onClick={() => openModal('signup')}>Sign Up</button>
+                  {isLoggedIn ? (
+                    <>
+                      <span className="welcome-text">Welcome, {username}</span>
+                      <button className="logout-btn" onClick={logout}>Log Out</button>
+                    </>
+                  ) : (
+                    <>
+                      <button className="login-btn" onClick={() => openModal('login')}>Log In</button>
+                      <button className="signup-btn" onClick={() => openModal('signup')}>Sign Up</button>
+                    </>
+                  )}
                 </div>
               </div>
             </BrowserView>
@@ -57,17 +93,24 @@ function App() {
                   </div>
                 )}
                 <div className="auth-buttons">
-                  <button className="login-btn" onClick={() => { openModal('login') }}> Log In </button>
-                  <button className="signup-btn" onClick={() => { openModal('signup') }}> Sign Up </button>
+                  {isLoggedIn ? (
+                    <>
+                      <span className="welcome-text">Welcome, {username}</span>
+                      <button className="logout-btn" onClick={logout}>Log Out</button>
+                    </>
+                  ) : (
+                    <>
+                      <button className="login-btn" onClick={() => openModal('login')}>Log In</button>
+                      <button className="signup-btn" onClick={() => openModal('signup')}>Sign Up</button>
+                    </>
+                  )}
                 </div>
               </>
             )}
             
         </nav>
 
-        {isModalOpen && (
-          <AuthModal type={modalType} onClose={closeModal} />
-        )}
+        {isModalOpen && (<AuthModal type={modalType} onClose={closeModal} />)}
 
         <main>
           <Routes>

@@ -149,3 +149,24 @@ h2 {
   background-color: #f1d6c6;
   transform: scale(1.03);
 }
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user-info span {
+  font-size: 16px;
+}
+
+.user-info button {
+  padding: 5px 10px;
+  background: #a52a2a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -57,8 +57,8 @@ function App() {
                   </div>
                 )}
                 <div className="auth-buttons">
-                  <button className="login-btn" onClick={() => { openModal('login'); toggleMenu(); }}> Log In </button>
-                  <button className="signup-btn" onClick={() => { openModal('signup'); toggleMenu(); }}> Sign Up </button>
+                  <button className="login-btn" onClick={() => { openModal('login') }}> Log In </button>
+                  <button className="signup-btn" onClick={() => { openModal('signup') }}> Sign Up </button>
                 </div>
               </>
             )}

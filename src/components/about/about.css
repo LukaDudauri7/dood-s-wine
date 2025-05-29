@@ -11,3 +11,15 @@ p {
 h2{
     font-size: 50px;
 }
+
+@media (max-width: 768px) {
+    p {
+        width: 80%;
+        font-size: 18px;
+        line-height: 48px;
+        left: 10%;
+    }
+    h2 {
+        font-size: 40px;
+    }
+}

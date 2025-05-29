@@ -88,7 +88,6 @@ function App() {
             <Route path="/About" element={<About />} />
           </Routes>
         </main>
-
         <Footer />
       </div>
     </Router>

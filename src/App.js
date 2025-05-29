@@ -52,8 +52,8 @@ function App() {
   const renderMenuLinks = () => (
     <>
       <Link to="/" onClick={toggleMenu}>Home</Link>
-      <Link to="/wine" onClick={toggleMenu}>Wine</Link>
-      <Link to="/about" onClick={toggleMenu}>About</Link>
+      <Link to="/Wine" onClick={toggleMenu}>Wine</Link>
+      <Link to="/About" onClick={toggleMenu}>About</Link>
     </>
   );
 
@@ -84,8 +84,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/wine" element={<Wine />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/Wine" element={<Wine />} />
+            <Route path="/About" element={<About />} />
           </Routes>
         </main>
 

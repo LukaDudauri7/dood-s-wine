@@ -37,7 +37,7 @@ function App() {
     <div className="auth-buttons">
       {user ? (
         <>
-          <span className="welcome-text">Welcome, {user.displayName || "User"}</span>
+          <span className="welcome-text">Hi, {user.displayName || "User"}</span>
           <button className="logout-btn" onClick={logout}>Log Out</button>
         </>
       ) : (

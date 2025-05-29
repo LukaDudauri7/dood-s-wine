@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./AuthModal.css";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase";
 
 function AuthModal({ type, onClose }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,14 +14,9 @@ function AuthModal({ type, onClose }) {
         if (type === "signup") {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             await updateProfile(userCredential.user, { displayName: name });
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("username", name);
             alert("Account created!");
         } else {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            const displayName = userCredential.user.displayName || email;
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("username", displayName);
+            await signInWithEmailAndPassword(auth, email, password);
             alert("Logged in!");
         }
         onClose();
@@ -32,56 +27,34 @@ function AuthModal({ type, onClose }) {
 
   return (
     <div className="auth-modal-overlay">
-        {type === "login" && (
-            <div className="auth-modal">
-                <button className="close-button" onClick={onClose}>×</button>
-                <h2>Log In</h2>
-                <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Log In</button>
-                </form>
-            </div>
-        )}
-        {type === "signup" && (
-            <div className="auth-modal">
-                <button className="close-button" onClick={onClose}>×</button>
-                <h2>Sign Up</h2>
-                <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        )}
+      <div className="auth-modal">
+        <button className="close-button" onClick={onClose}>×</button>
+        <h2>{type === "signup" ? "Sign Up" : "Log In"}</h2>
+        <form onSubmit={handleSubmit}>
+          {type === "signup" && (
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          )}
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">{type === "signup" ? "Sign Up" : "Log In"}</button>
+        </form>
+      </div>
     </div>
-
   );
 }
 

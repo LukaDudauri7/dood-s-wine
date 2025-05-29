@@ -1,116 +1,85 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import {BrowserView, MobileView, isMobile} from 'react-device-detect';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserView, MobileView } from "react-device-detect";
 import Home from "./components/Home/Home";
 import Wine from "./components/Wine/Wine";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 import AuthModal from "./components/AuthModal/AuthModal";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import { signOut } from "firebase/auth";
-import './fonts.css';
+import { onAuthStateChanged } from "firebase/auth";
+import "./fonts.css";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("login");
+  const [user, setUser] = useState(null);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const openModal = (type) => {
     setModalType(type);
     setIsModalOpen(true);
   };
+  const closeModal = () => setIsModalOpen(false);
+  const logout = () => signOut(auth);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const renderAuthButtons = () => (
+    <div className="auth-buttons">
+      {user ? (
+        <>
+          <span className="welcome-text">Welcome, {user.displayName || "User"}</span>
+          <button className="logout-btn" onClick={logout}>Log Out</button>
+        </>
+      ) : (
+        <>
+          <button className="login-btn" onClick={() => openModal("login")}>Log In</button>
+          <button className="signup-btn" onClick={() => openModal("signup")}>Sign Up</button>
+        </>
+      )}
+    </div>
+  );
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsLoggedIn(true);
-        setUsername(user.displayName || user.email);
-      } else {
-        setIsLoggedIn(false);
-        setUsername("");
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const logout = () => {
-    signOut(auth);
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("username");
-  };
+  const renderMenuLinks = () => (
+    <>
+      <Link to="/" onClick={toggleMenu}>Home</Link>
+      <Link to="/wine" onClick={toggleMenu}>Wine</Link>
+      <Link to="/about" onClick={toggleMenu}>About</Link>
+    </>
+  );
 
   return (
     <Router>
       <div className="App">
         <nav className="App-nav">
-            <BrowserView>
-              <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
-                <Link to="/" onClick={toggleMenu}>Home</Link>
-                <Link to="/wine" onClick={toggleMenu}>Wine</Link>
-                <Link to="/about" onClick={toggleMenu}>About</Link>
-                <div className="auth-buttons">
-                  {isLoggedIn ? (
-                    <>
-                      <span className="welcome-text">Welcome, {username}</span>
-                      <button className="logout-btn" onClick={logout}>Log Out</button>
-                    </>
-                  ) : (
-                    <>
-                      <button className="login-btn" onClick={() => openModal('login')}>Log In</button>
-                      <button className="signup-btn" onClick={() => openModal('signup')}>Sign Up</button>
-                    </>
-                  )}
-                </div>
-              </div>
-            </BrowserView>
-            {isMobile && (
-              <>
-                <div className={`hamburger ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                  <div className="bar"></div>
-                  <div className="bar"></div>
-                  <div className="bar"></div>
-                </div>
-                {isMenuOpen && (
-                  <div className="mobile-menu">
-                    <Link to="/" onClick={toggleMenu}>Home</Link>
-                    <Link to="/wine" onClick={toggleMenu}>Wine</Link>
-                    <Link to="/about" onClick={toggleMenu}>About</Link>
-                  </div>
-                )}
-                <div className="auth-buttons">
-                  {isLoggedIn ? (
-                    <>
-                      <span className="welcome-text">Welcome, {username}</span>
-                      <button className="logout-btn" onClick={logout}>Log Out</button>
-                    </>
-                  ) : (
-                    <>
-                      <button className="login-btn" onClick={() => openModal('login')}>Log In</button>
-                      <button className="signup-btn" onClick={() => openModal('signup')}>Sign Up</button>
-                    </>
-                  )}
-                </div>
-              </>
-            )}
-            
+          <BrowserView>
+            <div className={`menu ${isMenuOpen ? "open" : ""}`}>
+              {renderMenuLinks()}
+              {renderAuthButtons()}
+            </div>
+          </BrowserView>
+
+          <MobileView>
+            {renderAuthButtons()}
+            <div className={`hamburger ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
+              <div className="bar" />
+              <div className="bar" />
+              <div className="bar" />
+            </div>
+            {isMenuOpen && <div className="mobile-menu">{renderMenuLinks()}</div>}
+          </MobileView>
         </nav>
 
-        {isModalOpen && (<AuthModal type={modalType} onClose={closeModal} />)}
+        {isModalOpen && <AuthModal type={modalType} onClose={closeModal} />}
 
         <main>
           <Routes>
@@ -119,6 +88,7 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
+
         <Footer />
       </div>
     </Router>

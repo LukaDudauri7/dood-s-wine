@@ -86,16 +86,33 @@ h2 {
 }
 
 .auth-buttons button {
-  padding: 8px 16px;
+  padding: 10px 20px;
   font-size: 14px;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
+
+  background: linear-gradient(135deg, #7f5af0, #2cb67d);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ჰოვერი */
+.auth-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+.welcome-text{
+  color: #8d0449;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+}
 .login-btn {
   background-color: transparent;
   color: #8d0449;

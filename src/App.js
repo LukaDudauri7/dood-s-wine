@@ -9,6 +9,9 @@ import Footer from "./components/Footer/Footer";
 import AuthModal from "./components/AuthModal/AuthModal";
 import { auth } from "./firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
+import captions from './captions.json';
+import { useLanguage } from './languageContext';
 import "./fonts.css";
 
 function AppContent() {
@@ -17,7 +20,12 @@ function AppContent() {
   const [modalType, setModalType] = useState("login");
   const [user, setUser] = useState(null);
 
-  const location = useLocation(); // <== გამოიყენება რომ გამოვიცნოთ რომელ გვერდზე ვართ
+  const { language } = useLanguage();
+  const content = captions[language].header;
+
+  const location = useLocation();
+  console.log(content);
+  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
@@ -35,16 +43,17 @@ function AppContent() {
   const logout = () => signOut(auth);
 
   const renderAuthButtons = () => (
-    <div className="auth-buttons">
+      <div className="auth-buttons">
+        <LanguageSelector />
       {user ? (
         <>
           <span className="welcome-text">Hi, {user.displayName || "User"}</span>
-          <button className="logout-btn" onClick={logout}>Log Out</button>
+          <button className="logout-btn" onClick={logout}>{content.logOut}</button>
         </>
       ) : (
         <>
-          <button className="login-btn" onClick={() => openModal("login")}>Log In</button>
-          <button className="signup-btn" onClick={() => openModal("signup")}>Sign Up</button>
+          <button className="login-btn" onClick={() => openModal("login")}>{content.logIn}</button>
+          <button className="signup-btn" onClick={() => openModal("signup")}>{content.signUp}</button>
         </>
       )}
     </div>
@@ -52,9 +61,9 @@ function AppContent() {
 
   const renderMenuLinks = () => (
     <>
-      <Link to="/" onClick={toggleMenu}>Home</Link>
-      <Link to="/Wine" onClick={toggleMenu}>Wine</Link>
-      <Link to="/About" onClick={toggleMenu}>About</Link>
+      <Link to="/" onClick={toggleMenu}>{content.headerHome}</Link>
+      <Link to="/Wine" onClick={toggleMenu}>{content.headerProducts}</Link>
+      <Link to="/About" onClick={toggleMenu}>{content.headerAbout}</Link>
     </>
   );
 

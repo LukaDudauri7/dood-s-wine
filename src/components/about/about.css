@@ -44,6 +44,7 @@
 @media (max-width: 768px) {
   .about-container {
     padding: 25px 20px;
+    margin: 30px;
   }
 
   .about-title {

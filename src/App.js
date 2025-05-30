@@ -24,8 +24,6 @@ function AppContent() {
   const content = captions[language].header;
 
   const location = useLocation();
-  console.log(content);
-  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {

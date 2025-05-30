@@ -15,11 +15,25 @@
         "headerAbout": "ჩვენ შესახებ",
         "logIn": "შესვლა",
         "signUp": "რეგისტრაცია",
-        "logOut": "გამოსვლა"
+        "logOut": "გამოსვლა",
+        "hi": "გამარჯობა,"
     },
     "footer": {
         "copyright": "© 2025 წელი Dood's Wine. ყველა უფლება დაცულია.",
         "terms": "წესები და პირობები"
+    },
+    "wines": {
+        "ourWines": "ჩვენი ღვინოები",
+        "mtsvane": "გორული მწვანე",
+        "mtsvaneDesc": "მდიდარი, ნახევრად ტკბილი თეთრი ღვინო ქართლიდან.",
+        "rkatsiteli": "რქაწითელი",
+        "rkatsiteliDesc": "კახური თეთრი ღვინო, მსუბუქი და ხილის არომატით.",
+        "chinuri": "ჩინური",
+        "chinuriDesc": "ნახევრად ტკბილი თეთრი ღვინო, პოპულარული არჩევანი.",
+        "aladasturi": "ალადასტური",
+        "aladasturiDesc": "მდიდარი, მშრალი ნახევრად ტკბილი წითელი ღვინო ქართლიდან.",
+        "dirbula": "დირბულა",
+        "dirbulaDesc": "ნახევრად ტკბილი წითელი ღვინო, პოპულარული არჩევანი."
     }
   },
   "en": {
@@ -38,11 +52,25 @@
         "headerAbout": "About Us",
         "logIn": "Login",
         "signUp": "Sign Up",
-        "logOut": "Logout"
+        "logOut": "Logout",
+        "hi": "Hi,"
     },
     "footer": {
         "copyright": "Copyright © 2025 Dood's Wine. All Rights Reserved.",
         "terms": "Terms and Conditions"
+    },
+    "wines": {
+        "ourWines": "Our Wines",
+        "mtsvane": "Goruli Mtsvane",
+        "mtsvaneDesc": "Rich, semi-sweet white wine from Kartli.",
+        "rkatsiteli": "Rkatsiteli",
+        "rkatsiteliDesc": "Kakhetian white wine with a light, fruity aroma.",
+        "chinuri": "Chinuri",
+        "chinuriDesc": "Semi-sweet white wine, a popular choice.",
+        "aladasturi": "Aladasturi",
+        "aladasturiDesc": "Rich, dry to semi-sweet red wine from Kartli.",
+        "dirbula": "Dirbula",
+        "dirbulaDesc": "Semi-sweet red wine, a popular choice."
     }
   }
 }

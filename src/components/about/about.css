@@ -1,63 +1,100 @@
 .about-container {
-  max-width: 850px;
-  margin: 60px auto;
-  padding: 40px 30px;
-  background-color: #1f1f1f;
-  border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
-  font-family: "Segoe UI", sans-serif;
-  color: #f8f1e1;
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 50px 40px;
+  background-color: #fcf8f3; /* ძალიან ღია, თბილი კრემისფერი, თეთრთან ახლოს */
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", sans-serif; /* თქვენი ფონტი */
+  color: #4a2d3c;
   text-align: center;
+  line-height: 1.6;
 }
 
 .about-title {
-  font-size: 42px;
-  color: #e0b973;
-  margin-bottom: 20px;
+  font-size: 48px;
+  color: #a8003a;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .about-text {
   font-size: 20px;
   line-height: 1.8;
-  text-align: left;
-  margin: 0 auto;
-  max-width: 90%;
+  text-align: justify;
+  margin: 0 auto 30px auto;
+  max-width: 85%;
+  color: #5a3d4f;
+  font-family: 'Poppins';
 }
 
 .toggle-button {
-    margin-top: 25px;
-    padding: 16px 34px;
-    background-color: #6b2c2c;
-    color: #f8f1e1;
-    border: none;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  margin-top: 35px;
+  padding: 18px 40px;
+  background-color: #e6b800;
+  color: #333333;
+  border: 2px solid #a8003a;
+  border-radius: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(230, 184, 0, 0.4);
 }
 
 .toggle-button:hover {
-  background-color: #581d1d;
+  background-color: #ffd700;
+  border-color: #a8003a;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(230, 184, 0, 0.6);
 }
 
 @media (max-width: 768px) {
   .about-container {
-    padding: 25px 20px;
-    margin: 30px;
+    padding: 30px 25px;
+    margin: 40px 20px;
+    border-radius: 12px;
   }
 
   .about-title {
-    font-size: 32px;
+    font-size: 36px;
+    margin-bottom: 15px;
   }
 
   .about-text {
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 95%;
   }
 
   .toggle-button {
-    font-size: 15px;
-    padding: 10px 20px;
+    font-size: 18px;
+    padding: 14px 28px;
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 20px 15px;
+    margin: 25px 15px;
+    border-radius: 10px;
+  }
+
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-text {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .toggle-button {
+    font-size: 16px;
+    padding: 12px 25px;
   }
 }

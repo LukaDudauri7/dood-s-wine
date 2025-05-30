@@ -47,7 +47,7 @@ function AppContent() {
         <LanguageSelector />
       {user ? (
         <>
-          <span className="welcome-text">Hi, {user.displayName || "User"}</span>
+          <span className="welcome-text">{content.hi} {user.displayName || "User"}</span>
           <button className="logout-btn" onClick={logout}>{content.logOut}</button>
         </>
       ) : (
@@ -97,7 +97,13 @@ function AppContent() {
           <Route path="/About" element={<About />} />
         </Routes>
 
-        {location.pathname === "/" && <About />}
+        {location.pathname === "/" && (
+          <>
+            <Wine />
+            <About />
+          </>
+        )}
+
       </main>
 
       <Footer />

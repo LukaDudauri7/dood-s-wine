@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import { BrowserView, MobileView } from "react-device-detect";
 import Home from "./components/home/Home";
 import Wine from "./components/wine/Wine";
@@ -8,15 +8,16 @@ import About from "./components/about/About";
 import Footer from "./components/Footer/Footer";
 import AuthModal from "./components/AuthModal/AuthModal";
 import { auth } from "./firebase";
-import { signOut } from "firebase/auth";
-import { onAuthStateChanged } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import "./fonts.css";
 
-function App() {
+function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("login");
   const [user, setUser] = useState(null);
+
+  const location = useLocation(); // <== გამოიყენება რომ გამოვიცნოთ რომელ გვერდზე ვართ
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
@@ -58,38 +59,47 @@ function App() {
   );
 
   return (
-    <Router>
-      <div className="App">
-        <nav className="App-nav">
-          <BrowserView>
-            <div className={`menu ${isMenuOpen ? "open" : ""}`}>
-              {renderMenuLinks()}
-              {renderAuthButtons()}
-            </div>
-          </BrowserView>
-
-          <MobileView>
+    <div className="App">
+      <nav className="App-nav">
+        <BrowserView>
+          <div className={`menu ${isMenuOpen ? "open" : ""}`}>
+            {renderMenuLinks()}
             {renderAuthButtons()}
-            <div className={`hamburger ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
-              <div className="bar" />
-              <div className="bar" />
-              <div className="bar" />
-            </div>
-            {isMenuOpen && <div className="mobile-menu">{renderMenuLinks()}</div>}
-          </MobileView>
-        </nav>
+          </div>
+        </BrowserView>
 
-        {isModalOpen && <AuthModal type={modalType} onClose={closeModal} />}
+        <MobileView>
+          {renderAuthButtons()}
+          <div className={`hamburger ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
+            <div className="bar" />
+            <div className="bar" />
+            <div className="bar" />
+          </div>
+          {isMenuOpen && <div className="mobile-menu">{renderMenuLinks()}</div>}
+        </MobileView>
+      </nav>
 
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Wine" element={<Wine />} />
-            <Route path="/About" element={<About />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      {isModalOpen && <AuthModal type={modalType} onClose={closeModal} />}
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Wine" element={<Wine />} />
+          <Route path="/About" element={<About />} />
+        </Routes>
+
+        {location.pathname === "/" && <About />}
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

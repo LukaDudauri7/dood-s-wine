@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import { BrowserView, MobileView } from "react-device-detect";
@@ -16,6 +16,7 @@ import "./fonts.css";
 
 function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("login");
   const [user, setUser] = useState(null);
@@ -31,8 +32,25 @@ function AppContent() {
     });
     return () => unsubscribe();
   }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeMenu(); // დახურე თუ გარეთ დააწკაპუნა
+      }
+    };
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
   const openModal = (type) => {
     setModalType(type);
     setIsModalOpen(true);
@@ -77,12 +95,14 @@ function AppContent() {
 
         <MobileView>
           {renderAuthButtons()}
-          <div className={`hamburger ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
-            <div className="bar" />
-            <div className="bar" />
-            <div className="bar" />
+          <div ref={menuRef}>
+            <div className={`hamburger ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
+              <div className="bar" />
+              <div className="bar" />
+              <div className="bar" />
+            </div>
+            {isMenuOpen && <div className="mobile-menu">{renderMenuLinks()}</div>}
           </div>
-          {isMenuOpen && <div className="mobile-menu">{renderMenuLinks()}</div>}
         </MobileView>
       </nav>
 

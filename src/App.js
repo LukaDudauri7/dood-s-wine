@@ -13,6 +13,7 @@ import LanguageSelector from "./components/LanguageSelector/LanguageSelector";
 import captions from './captions.json';
 import { useLanguage } from './languageContext';
 import "./fonts.css";
+import Loader from "./components/Loader/Loader";
 
 function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,6 @@ function AppContent() {
   const content = captions[language].header;
 
   const location = useLocation();
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       setUser(firebaseUser);
@@ -130,9 +130,24 @@ function AppContent() {
 }
 
 function App() {
+  
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    // აქ შეგიძლიათ გააკეთოთ მონაცემების მოთხოვნა, სურათების ჩატვირთვა და ა.შ.
+    // მაგალითად, setTimeout-ით სიმულაცია:
+    const timer = setTimeout(() => {
+      setLoading(false); // როდესაც ყველაფერი ჩაიტვირთება, ლოადერი გაქრება
+    }, 2900); // 3 წამიანი დაყოვნება სიმულაციისთვის
+
+    return () => clearTimeout(timer); // გაწმენდა კომპონენტის განადგურებისას
+  }, []);
   return (
     <Router>
-      <AppContent />
+      {loading ? (
+        <Loader />
+      ) : (
+        <AppContent />
+      )}
     </Router>
   );
 }

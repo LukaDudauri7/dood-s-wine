@@ -29,7 +29,17 @@ const Home = () => {
                 {content.brandName}
             </motion.h2>
 
-            <SocialBar />
+            <motion.div
+                initial={{ x: "100%", opacity: 0 }} // იწყება ეკრანის მარჯვენა კიდიდან (100% of viewport width)
+                animate={{ x: "0%", opacity: 1 }}  // სრულდება თავის პოზიციაზე (0% of viewport width offset)
+                transition={{
+                    duration: 0.8, // ანიმაციის ხანგრძლივობა (0.8 წამი)
+                    delay: 1.2,    // დაყოვნება სანამ დაიწყება ანიმაცია (1.2 წამი)
+                    ease: "easeOut" // ანიმაციის გამარტივება: სწრაფი დასაწყისი, ნელი დასასრული
+                }}
+            >
+                <SocialBar />
+            </motion.div>
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}

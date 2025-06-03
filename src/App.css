@@ -6,6 +6,7 @@ body {
   color: #f8f1e1;
   font-family: 'Poppins', sans-serif;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
 .App {

@@ -59,7 +59,7 @@ main {
   gap: 15px;
   align-items: center;
   position: absolute;
-  right: 35px;
+  right: 25px;
 }
 
 .auth-buttons button {
@@ -100,7 +100,7 @@ main {
 
 /* მისალმება */
 .welcome-text {
-  color: #e6b800;
+  color: #e59565;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: 20px;

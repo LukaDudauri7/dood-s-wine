@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import './Slider.css';
 
 const Slider = () => {
-  const imageCount = 5;
+  const imageCount = 7;
   const images = Array.from({ length: imageCount }, (_, i) => `/images/wine${i + 1}.png`);
   return (
     <div className="slider-container">

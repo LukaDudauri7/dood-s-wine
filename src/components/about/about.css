@@ -30,26 +30,24 @@
 }
 
 .toggle-button {
-  margin-top: 35px;
   padding: 18px 40px;
-  background-color: #e6b800;
-  color: #333333;
-  border: 2px solid #a8003a;
-  border-radius: 30px;
   font-size: 22px;
   font-weight: 600;
+  border: none;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #721817, #a8003a);
+  color: #fdf5f1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   letter-spacing: 0.5px;
-  text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(230, 184, 0, 0.4);
 }
 
 .toggle-button:hover {
-  background-color: #ffd700;
-  border-color: #a8003a;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(230, 184, 0, 0.6);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {

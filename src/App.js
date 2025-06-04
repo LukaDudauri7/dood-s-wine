@@ -63,7 +63,11 @@ function AppContent() {
         <LanguageSelector />
       {user ? (
         <>
-          <span className="welcome-text">{content.hi} {user.displayName || "User"}</span>
+          {user.displayName && (
+            <div className="user-initial">
+              {user.displayName.charAt(0).toUpperCase()}
+            </div>
+          )}
           <button className="logout-btn" onClick={logout}>{content.logOut}</button>
         </>
       ) : (

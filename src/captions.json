@@ -15,8 +15,7 @@
         "headerAbout": "ჩვენ შესახებ",
         "logIn": "შესვლა",
         "signUp": "რეგისტრაცია",
-        "logOut": "გამოსვლა",
-        "hi": "გამარჯობა,"
+        "logOut": "გამოსვლა"
     },
     "footer": {
         "copyright": "© 2025 წელი Dood's Wine. ყველა უფლება დაცულია.",
@@ -52,8 +51,7 @@
         "headerAbout": "About Us",
         "logIn": "Login",
         "signUp": "Sign Up",
-        "logOut": "Logout",
-        "hi": "Hi,"
+        "logOut": "Logout"
     },
     "footer": {
         "copyright": "Copyright © 2025 Dood's Wine. All Rights Reserved.",

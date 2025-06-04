@@ -18,7 +18,7 @@
   margin-bottom: 50px;
   font-size: 38px;
   font-weight: 700;
-  color: #d4af37;
+  color: #2e0f0f;
   text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -49,16 +49,16 @@
 }
 
 .wine-option:hover {
-  border-color: #d4af37;
+  border-color: #2e0f0f;
   transform: translateY(-8px) scale(1.02);
   background-color: #333;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.5);
 }
 
 .wine-option.selected {
-  border-color: #d4af37;
+  border-color: #2e0f0f;
   background: linear-gradient(135deg, #722f37, #a91b47);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), 0 0 15px #d4af37;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), 0 0 15px #2e0f0f;
   transform: translateY(-2px);
 }
 
@@ -91,7 +91,7 @@
 
 .order-form input:focus,
 .order-form textarea:focus {
-  border-color: #d4af37;
+  border-color: #2e0f0f;
   outline: none;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
 }
@@ -125,7 +125,7 @@
 
 .success-message {
   margin-top: 30px;
-  color: #d4af37;
+  color: #2e0f0f;
   font-weight: bold;
   text-align: center;
   font-size: 1.4rem;
@@ -185,14 +185,7 @@
     padding: 20px;
   }
 }
-h2 {
-  text-align: center;
-}
-.order-page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 /* ღვინის ასარჩევი (Select) სტილები */
 .wine-select {
   appearance: none; /* ბრაუზერის ნაგულისხმევი სტილების მოხსნა */
@@ -208,18 +201,18 @@ h2 {
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Poppins', sans-serif; /* ინფუთების მსგავსი შრიფტი */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>'); /* ოქროსფერი ისარი */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%232e0f0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>'); /* ოქროსფერი ისარი */
   background-repeat: no-repeat;
   background-position: right 15px center; /* ისრის პოზიცია */
   background-size: 20px; /* ისრის ზომა */
 }
 
 .wine-select:hover {
-  border-color: #d4af37;
+  border-color: #2e0f0f;
 }
 
 .wine-select:focus {
-  border-color: #d4af37;
+  border-color: #2e0f0f;
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
 }
 
@@ -228,4 +221,9 @@ h2 {
   background-color: #333333;
   color: #f8f1e1;
   padding: 10px;
+}
+.order-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

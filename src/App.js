@@ -14,6 +14,7 @@ import captions from './captions.json';
 import { useLanguage } from './languageContext';
 import "./fonts.css";
 import Loader from "./components/Loader/Loader";
+import OrderPage from "./components/OrderPage/OrderPage";
 
 function AppContent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,6 +84,7 @@ function AppContent() {
     <>
       <Link to="/" onClick={toggleMenu}>{content.headerHome}</Link>
       <Link to="/Wine" onClick={toggleMenu}>{content.headerProducts}</Link>
+      <Link to="/Order" onClick={toggleMenu}>Order</Link>
       <Link to="/About" onClick={toggleMenu}>{content.headerAbout}</Link>
     </>
   );
@@ -116,18 +118,19 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Wine" element={<Wine />} />
+          <Route path="/order" element={<OrderPage />} />
           <Route path="/About" element={<About />} />
         </Routes>
 
         {location.pathname === "/" && (
           <>
             <Wine />
+            <OrderPage />
             <About />
           </>
         )}
 
       </main>
-
       <Footer />
     </div>
   );
@@ -137,8 +140,6 @@ function App() {
   
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // აქ შეგიძლიათ გააკეთოთ მონაცემების მოთხოვნა, სურათების ჩატვირთვა და ა.შ.
-    // მაგალითად, setTimeout-ით სიმულაცია:
     const timer = setTimeout(() => {
       setLoading(false); // როდესაც ყველაფერი ჩაიტვირთება, ლოადერი გაქრება
     }, 2900); // 3 წამიანი დაყოვნება სიმულაციისთვის

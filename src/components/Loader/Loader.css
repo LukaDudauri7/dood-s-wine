@@ -131,11 +131,13 @@
 }
 
 .loader-progress-text {
-  color: var(--loader-brand-gold);
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    color: var(--loader-brand-gold);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    position: relative;
+    top: 12px;
 }
 
 .loader-status-text {

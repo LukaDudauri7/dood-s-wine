@@ -189,11 +189,11 @@
 /* ღვინის ასარჩევი (Select) სტილები */
 .wine-select {
   appearance: none; /* ბრაუზერის ნაგულისხმევი სტილების მოხსნა */
-  width: 100%;
-  padding: 15px;
+  width: calc(100% - 10px);
+  padding: 10px;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 15px;
   background-color: #333333;
   color: #f8f1e1;
   border: 1px solid #555;

@@ -1,7 +1,7 @@
 .about-container {
   max-width: 900px;
   margin: 80px auto;
-  padding: 50px 40px;
+  padding: 35px 10px;
   background-color: #fcf8f3; /* ძალიან ღია, თბილი კრემისფერი, თეთრთან ახლოს */
   border-radius: 18px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -53,7 +53,7 @@
 @media (max-width: 768px) {
   .about-container {
     padding: 30px 25px;
-    margin: 40px 20px;
+    margin: 50px 25px;
     border-radius: 12px;
   }
 
@@ -78,7 +78,7 @@
 @media (max-width: 480px) {
   .about-container {
     padding: 20px 15px;
-    margin: 25px 15px;
+    margin: 50px 25px;
     border-radius: 10px;
   }
 
